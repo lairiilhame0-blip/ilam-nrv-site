@@ -11,3 +11,8 @@
   .action-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .action-photo:nth-child(5) { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
 }
+
+/* Accueil : retrait du cadre decale, legende alignee a gauche sous la photo */
+.hero-seal { display: none; }
+.hero-visual { grid-template-rows: minmax(0, 1fr) auto; }
+.visual-index { justify-self: start; }
