@@ -1,0 +1,13 @@
+/* Galerie En action : 5 photos, grille uniforme (remplace les anciennes regles) */
+.action-gallery-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; max-width: 1270px; margin: 0 auto; }
+.action-photo { min-width: 0; aspect-ratio: 4 / 5; margin: 0; overflow: hidden; background: #202119; position: static; }
+.action-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.action-photo:nth-child(1) img { object-position: 50% 48%; }
+.action-photo:nth-child(2) img { object-position: 50% 42%; }
+.action-photo:nth-child(3) img { object-position: 50% 48%; }
+.action-photo:nth-child(4) img { object-position: 50% 44%; }
+.action-photo:nth-child(5) img { object-position: 50% 42%; }
+@media (max-width: 1099px) {
+  .action-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .action-photo:nth-child(5) { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
+}
