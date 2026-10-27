@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ilamnrv.fr/sitemap.xml
