@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="avis.css">
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -71,24 +72,24 @@
           <div class="card-topline"><span class="dossard-label">DOSSARD NRV-001</span><span class="station-label">FORCE</span></div>
           <h3>Musculation</h3>
           <p class="program-desc">Bâtis ta force, séance après séance.</p>
-          <p class="price"><span>150</span>€ <small>/ PROGRAMME</small></p>
-          <ul><li>Programmation individualisée</li><li>Suivi régulier</li><li>Ajustements selon ta progression</li><li>Accès direct à ta coach</li></ul>
+          <p class="price"><span>150</span>€ <small>/ MOIS</small></p>
+          <ul><li>Accès à l’application Ekklo</li><li>Toute ta programmation dans l’appli Ekklo</li><li>Visio de groupe toutes les 2 semaines</li></ul>
           <a class="button button-outline" href="#contact" data-program="Musculation">Je me lance <span aria-hidden="true">↗</span></a>
         </article>
         <article class="program-card featured-card">
           <div class="card-topline"><span class="dossard-label">DOSSARD NRV-002</span><span class="station-label">HYBRIDE</span></div>
           <h3>Hybride</h3>
           <p class="program-desc">Force et cardio, sans choisir.</p>
-          <p class="price"><span>180</span>€ <small>/ PROGRAMME</small></p>
-          <ul><li>Programmation individualisée</li><li>Suivi régulier</li><li>Ajustements selon ta progression</li><li>Accès direct à ta coach</li></ul>
+          <p class="price"><span>180</span>€ <small>/ MOIS</small></p>
+          <ul><li>Accès à l’application Ekklo</li><li>Toute ta programmation dans l’appli Ekklo</li><li>Visio de groupe toutes les 2 semaines</li></ul>
           <a class="button button-primary" href="#contact" data-program="Hybride">Je me lance <span aria-hidden="true">↗</span></a>
         </article>
         <article class="program-card">
           <div class="card-topline"><span class="dossard-label">DOSSARD NRV-003</span><span class="station-label">CHALLENGE</span></div>
           <h3>Hyrox</h3>
           <p class="program-desc">Prépare-toi à te dépasser, vraiment.</p>
-          <p class="price"><span>180</span>€ <small>/ PROGRAMME</small></p>
-          <ul><li>Programmation individualisée</li><li>Suivi régulier</li><li>Ajustements selon ta progression</li><li>Accès direct à ta coach</li></ul>
+          <p class="price"><span>180</span>€ <small>/ MOIS</small></p>
+          <ul><li>Accès à l’application Ekklo</li><li>Toute ta programmation dans l’appli Ekklo</li><li>Visio de groupe toutes les 2 semaines</li></ul>
           <a class="button button-outline" href="#contact" data-program="Hyrox">Je me lance <span aria-hidden="true">↗</span></a>
         </article>
       </div>
@@ -190,7 +191,49 @@
       </div>
     </section>
 
-    <!-- TODO-AVIS : ajouter de vrais témoignages validés par les élèves. -->
+    <section class="reviews section-dark section-pad" id="avis" aria-labelledby="reviews-title" hidden>
+      <div class="section-heading reviews-heading">
+        <p class="eyebrow">ELLES EN PARLENT</p>
+        <h2 id="reviews-title">DU VRAI.<br><span>DU VÉCU.</span></h2>
+      </div>
+      <div class="review-grid" id="review-grid"></div>
+    </section>
+
+    <section class="avis-form section-olive section-pad" id="avis-form" aria-labelledby="avis-form-title">
+      <div class="avis-intro">
+        <p class="eyebrow">TEAM NRV · TON EXPÉRIENCE</p>
+        <h2 id="avis-form-title">LAISSE<br><span>TON AVIS.</span></h2>
+        <p>Ton retour compte. Il m'aide, et il aide les prochaines.</p>
+        <p class="avis-note">Chaque avis est relu avant publication.</p>
+      </div>
+      <form class="avis-form-card" id="avis-form-fields">
+        <input type="hidden" name="_subject" value="Nouvel avis ILAM.NRV à valider">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-heading"><span>TON RETOUR</span><span>NRV — 02</span></div>
+        <label>Prénom *<input name="prenom" autocomplete="given-name" required placeholder="Ton prénom"></label>
+        <fieldset class="rating-fieldset" aria-describedby="rating-help">
+          <legend>Ta note *</legend>
+          <p id="rating-help" class="rating-help">Choisis une note de 1 à 5 étoiles.</p>
+          <div class="rating-options" id="rating-options">
+            <label class="star-option"><input type="radio" name="rating" value="1" aria-label="1 étoile" required><span aria-hidden="true">★</span></label>
+            <label class="star-option"><input type="radio" name="rating" value="2" aria-label="2 étoiles" required><span aria-hidden="true">★</span></label>
+            <label class="star-option"><input type="radio" name="rating" value="3" aria-label="3 étoiles" required><span aria-hidden="true">★</span></label>
+            <label class="star-option"><input type="radio" name="rating" value="4" aria-label="4 étoiles" required><span aria-hidden="true">★</span></label>
+            <label class="star-option"><input type="radio" name="rating" value="5" aria-label="5 étoiles" required><span aria-hidden="true">★</span></label>
+          </div>
+        </fieldset>
+        <label>Ton programme<select name="program">
+          <option value="" selected>Choisis ton programme (facultatif)</option>
+          <option>Musculation</option><option>Hybride</option><option>Hyrox</option><option>Coaching en salle</option><option>Autre</option>
+        </select></label>
+        <label>Ton avis *<textarea name="message" rows="5" maxlength="600" required placeholder="Raconte ton expérience… (600 caractères maximum)"></textarea></label>
+        <label class="consent-label"><input type="checkbox" name="consent" value="oui" required> <span>J'accepte que mon avis soit publié sur le site avec mon prénom.</span></label>
+        <button class="button button-primary form-submit" type="submit">Envoyer mon avis <span aria-hidden="true">↗</span></button>
+        <p class="form-status" id="avis-form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
 
     <section class="contact section-olive section-pad" id="contact">
       <div class="contact-intro">
