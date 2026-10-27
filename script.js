@@ -1,3 +1,6 @@
+// Add only consented, real testimonials here: {name, text, rating, program}.
+const REVIEWS = [];
+
 const CONFIG = {
   stripePaymentLinks: {
     musculation: "",
@@ -34,6 +37,37 @@ roster.append(growthTag);
 
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
+
+if (REVIEWS.length > 0) {
+  const reviewSection = document.querySelector("#avis");
+  const reviewGrid = document.querySelector("#review-grid");
+  const contactNavLink = mainNav.querySelector('a[href="#contact"]');
+  const reviewNavLink = document.createElement("a");
+  reviewNavLink.href = "#avis";
+  reviewNavLink.textContent = "Avis";
+  mainNav.insertBefore(reviewNavLink, contactNavLink);
+
+  REVIEWS.forEach((review) => {
+    const card = document.createElement("figure");
+    card.className = "review-card";
+    const stars = document.createElement("div");
+    stars.className = "review-stars";
+    stars.setAttribute("role", "img");
+    stars.setAttribute("aria-label", `${review.rating} étoile${review.rating > 1 ? "s" : ""} sur 5`);
+    stars.textContent = "★".repeat(review.rating);
+    const quote = document.createElement("blockquote");
+    quote.textContent = review.text;
+    const caption = document.createElement("figcaption");
+    const name = document.createElement("strong");
+    name.textContent = review.name;
+    const program = document.createElement("span");
+    program.textContent = review.program;
+    caption.append(name, program);
+    card.append(stars, quote, caption);
+    reviewGrid.append(card);
+  });
+  reviewSection.hidden = false;
+}
 
 menuToggle.addEventListener("click", () => {
   const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
@@ -86,6 +120,49 @@ contactForm.addEventListener("submit", async (event) => {
     contactForm.reset();
   } catch {
     formStatus.textContent = "Oups, l’envoi n’a pas fonctionné. Écris-moi directement sur WhatsApp.";
+  } finally {
+    submitButton.disabled = false;
+  }
+});
+
+const reviewForm = document.querySelector("#avis-form-fields");
+const reviewStatus = document.querySelector("#avis-form-status");
+const ratingOptions = document.querySelector("#rating-options");
+
+ratingOptions.addEventListener("change", (event) => {
+  if (event.target.matches('input[name="rating"]')) {
+    ratingOptions.dataset.rating = event.target.value;
+  }
+});
+
+reviewForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!reviewForm.reportValidity()) return;
+
+  const submitButton = reviewForm.querySelector("[type=submit]");
+  submitButton.disabled = true;
+  reviewStatus.textContent = "Envoi en cours…";
+  try {
+    const response = await fetch(CONFIG.formAction, {
+      method: "POST",
+      body: JSON.stringify(Object.fromEntries(new FormData(reviewForm))),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    });
+    if (!response.ok) throw new Error("Review submission failed");
+    reviewStatus.textContent = "Merci ! Ton avis sera relu avant publication.";
+    reviewForm.reset();
+    delete ratingOptions.dataset.rating;
+  } catch {
+    reviewStatus.textContent = "Oups, l’envoi n’a pas fonctionné. Écris-moi directement sur ";
+    const whatsappLink = document.createElement("a");
+    whatsappLink.href = "https://wa.me/33601022268";
+    whatsappLink.target = "_blank";
+    whatsappLink.rel = "noopener noreferrer";
+    whatsappLink.textContent = "WhatsApp";
+    reviewStatus.append(whatsappLink, document.createTextNode("."));
   } finally {
     submitButton.disabled = false;
   }

@@ -1,0 +1,49 @@
+/* Avis clients et formulaire de retour */
+.reviews[hidden] { display: none; }
+.reviews-heading { max-width: 1270px; }
+.review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; max-width: 1270px; margin: 0 auto; }
+.review-card { min-height: 240px; margin: 0; padding: 1.5rem; border: 1px solid var(--line); background: #171811; }
+.review-stars { margin-bottom: 1rem; color: var(--khaki); font: 1.1rem var(--mono); letter-spacing: .15em; }
+.review-card blockquote { margin: 0 0 1.5rem; color: var(--paper); font-size: .92rem; }
+.review-card figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; border-top: 1px solid var(--line); padding-top: .8rem; font: .62rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.review-card figcaption span { color: var(--muted); }
+.avis-form { display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: clamp(3rem, 8vw, 8rem); }
+.avis-intro { max-width: 500px; }
+.avis-intro h2 { margin: 0; font: clamp(4.5rem, 8vw, 8rem)/.83 var(--display); letter-spacing: .005em; }
+.avis-intro h2 span { color: var(--paper); }
+.avis-intro > p:not(.eyebrow) { max-width: 390px; margin: 1.7rem 0; color: #d0d0c5; font-size: .92rem; }
+.avis-intro .avis-note { border-left: 2px solid var(--khaki); padding-left: .8rem; color: var(--muted); font: .66rem/1.6 var(--mono); }
+.avis-form-card { max-width: 800px; padding: clamp(1.4rem, 3vw, 3rem); border: 1px solid var(--paper); background: var(--black); }
+.avis-form-card label { display: block; margin: 0 0 1.1rem; color: #d9d7ce; font: .62rem var(--mono); letter-spacing: .05em; }
+.avis-form-card input:not([type="radio"]):not([type="checkbox"]), .avis-form-card select, .avis-form-card textarea { display: block; width: 100%; margin-top: .45rem; border: 1px solid var(--line); border-radius: 0; padding: .8rem; background: transparent; color: var(--paper); font: .8rem var(--sans); }
+.avis-form-card input[type="hidden"] { display: none; }
+.avis-form-card input:focus, .avis-form-card select:focus, .avis-form-card textarea:focus { border-color: var(--khaki); outline: 0; }
+.avis-form-card input::placeholder, .avis-form-card textarea::placeholder { color: #8d8d83; }
+.avis-form-card select:invalid { color: #8d8d83; }
+.avis-form-card option { background: var(--black); color: var(--paper); }
+.avis-form-card textarea { min-height: 130px; resize: vertical; }
+.rating-fieldset { margin: 0 0 1.1rem; border: 0; padding: 0; }
+.rating-fieldset legend { margin-bottom: .35rem; color: #d9d7ce; font: .62rem var(--mono); letter-spacing: .05em; }
+.rating-help { margin: 0 0 .35rem; color: var(--muted); font: .58rem var(--mono); }
+.rating-options { display: flex; gap: .3rem; }
+.star-option { position: relative; display: inline-flex !important; width: 2.75rem; height: 2.75rem; align-items: center; justify-content: center; margin: 0 !important; cursor: pointer; }
+.star-option input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.star-option span { color: #8d8d83; font: 1.8rem/1 var(--sans); }
+.rating-options[data-rating] .star-option:nth-child(-n + 1) span { color: var(--khaki); }
+.rating-options[data-rating="2"] .star-option:nth-child(-n + 2) span, .rating-options[data-rating="3"] .star-option:nth-child(-n + 3) span, .rating-options[data-rating="4"] .star-option:nth-child(-n + 4) span, .rating-options[data-rating="5"] .star-option:nth-child(-n + 5) span { color: var(--khaki); }
+.star-option input:focus-visible + span { outline: 2px solid var(--violet); outline-offset: 4px; }
+.consent-label { display: flex !important; align-items: flex-start; gap: .65rem; line-height: 1.6; }
+.avis-form-card .consent-label input { flex: none; width: 1.1rem; height: 1.1rem; margin: .05rem 0 0; accent-color: var(--khaki); }
+.avis-form-card .consent-label span { max-width: 520px; }
+.avis-form-card .form-status a { color: var(--khaki); text-decoration: underline; text-underline-offset: .2em; }
+@media (max-width: 800px) {
+  .avis-form { gap: 2.5rem; }
+  .avis-intro h2 { font-size: clamp(4rem, 8vw, 6rem); }
+}
+@media (max-width: 600px) {
+  .avis-form { grid-template-columns: 1fr; gap: 2rem; }
+  .avis-intro h2 { font-size: clamp(4.6rem, 18vw, 6.5rem); }
+  .avis-form-card { padding: 1.2rem; }
+  .review-grid { grid-template-columns: 1fr; }
+  .review-card { min-height: auto; padding: 1.2rem; }
+}
