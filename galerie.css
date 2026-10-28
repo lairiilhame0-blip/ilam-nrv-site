@@ -27,8 +27,8 @@
 
 /* ===== Programmes en ligne : textes plus grands et plus lisibles ===== */
 .programs .section-intro { max-width: 640px; font-size: 1.15rem; line-height: 1.6; color: var(--paper); }
-.why-online { max-width: 1270px; margin: 0 auto 1.5rem; border-left: 2px solid var(--khaki); padding: .4rem 0 .4rem 1.2rem; }
-.why-title { margin: 0 0 .5rem; color: var(--khaki); font: 700 .8rem var(--mono); letter-spacing: .14em; }
+.why-online { max-width: 1270px; margin: 0 auto 1.5rem; border-left: 2px solid var(--violet); padding: .4rem 0 .4rem 1.2rem; }
+.why-title { margin: 0 0 .5rem; color: var(--violet); font: 700 .8rem var(--mono); letter-spacing: .14em; }
 .why-text { max-width: 640px; margin: 0 0 .8rem; color: var(--paper); font-size: 1.05rem; line-height: 1.6; }
 .why-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; }
 .why-tags span { border: 1px solid var(--line); padding: .3rem .6rem; color: var(--muted); font: 700 .7rem var(--mono); letter-spacing: .1em; }
