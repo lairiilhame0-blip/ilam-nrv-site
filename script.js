@@ -71,6 +71,30 @@ document.querySelectorAll("[data-program]").forEach((link) => {
     });
   }
 });
+// Stop waiting when the delivery service does not answer.
+async function submitToFormSubmit(form) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+  try {
+    return await fetch(CONFIG.formAction, {
+      method: "POST",
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      headers: { Accept: "application/json", "Content-Type": "application/json" },
+      signal: controller.signal
+    });
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+function showFormError(status) {
+  status.textContent = "Oups, l’envoi n’a pas fonctionné. Écris-moi directement sur ";
+  const whatsappLink = document.createElement("a");
+  whatsappLink.href = "https://wa.me/33601022268";
+  whatsappLink.target = "_blank";
+  whatsappLink.rel = "noopener noreferrer";
+  whatsappLink.textContent = "WhatsApp";
+  status.append(whatsappLink, document.createTextNode("."));
+}
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
 contactForm.addEventListener("submit", async (event) => {
@@ -80,16 +104,12 @@ contactForm.addEventListener("submit", async (event) => {
   submitButton.disabled = true;
   formStatus.textContent = "Envoi en cours…";
   try {
-    const response = await fetch(CONFIG.formAction, {
-      method: "POST",
-      body: JSON.stringify(Object.fromEntries(new FormData(contactForm))),
-      headers: { Accept: "application/json", "Content-Type": "application/json" }
-    });
+    const response = await submitToFormSubmit(contactForm);
     if (!response.ok) throw new Error("Form submission failed");
     formStatus.textContent = "Merci pour ton message ! Je reviens vers toi très vite.";
     contactForm.reset();
   } catch {
-    formStatus.textContent = "Oups, l’envoi n’a pas fonctionné. Écris-moi directement sur WhatsApp.";
+    showFormError(formStatus);
   } finally {
     submitButton.disabled = false;
   }
@@ -109,23 +129,13 @@ reviewForm.addEventListener("submit", async (event) => {
   submitButton.disabled = true;
   reviewStatus.textContent = "Envoi en cours…";
   try {
-    const response = await fetch(CONFIG.formAction, {
-      method: "POST",
-      body: JSON.stringify(Object.fromEntries(new FormData(reviewForm))),
-      headers: { Accept: "application/json", "Content-Type": "application/json" }
-    });
+    const response = await submitToFormSubmit(reviewForm);
     if (!response.ok) throw new Error("Review submission failed");
     reviewStatus.textContent = "Merci ! Ton avis sera relu avant publication.";
     reviewForm.reset();
     delete ratingOptions.dataset.rating;
   } catch {
-    reviewStatus.textContent = "Oups, l’envoi n’a pas fonctionné. Écris-moi directement sur ";
-    const whatsappLink = document.createElement("a");
-    whatsappLink.href = "https://wa.me/33601022268";
-    whatsappLink.target = "_blank";
-    whatsappLink.rel = "noopener noreferrer";
-    whatsappLink.textContent = "WhatsApp";
-    reviewStatus.append(whatsappLink, document.createTextNode("."));
+    showFormError(reviewStatus);
   } finally {
     submitButton.disabled = false;
   }
