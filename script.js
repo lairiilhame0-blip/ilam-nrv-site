@@ -1,7 +1,7 @@
 // Only publish real testimonials provided by the coach.
 const REVIEWS = [];
 const CONFIG = {
-  stripePaymentLinks: { musculation: "", hybride: "", hyrox: "" },
+  stripePaymentLinks: { musculation: "https://buy.stripe.com/5kQ9AVd2t2Gc4Az6QMawo02", hybride: "https://buy.stripe.com/7sYfZjbYpfsY5ED1wsawo01", hyrox: "https://buy.stripe.com/00w9AVaUl94AaYX3EAawo00" },
   formAction: "https://formsubmit.co/ajax/lairiilhame0@gmail.com"
 };
 const teamRoster = [
@@ -63,6 +63,8 @@ document.querySelectorAll("[data-program]").forEach((link) => {
   const paymentUrl = CONFIG.stripePaymentLinks[key];
   if (paymentUrl) {
     link.href = paymentUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
   } else {
     link.addEventListener("click", () => {
       document.querySelector('select[name="goal"]').value = link.dataset.program;
