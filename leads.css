@@ -1,0 +1,52 @@
+/* Lead magnets : quiz et checklist (réutilise styles.css + challenge.css) */
+.lm-page { --neon: #c8ff2e; }
+.lm-hero { padding: clamp(3rem, 8vw, 6rem) var(--gutter) clamp(2rem, 5vw, 4rem); }
+.lm-hero h1 { margin: 0; font: clamp(2.8rem, 10.5vw, 8rem)/.86 var(--display); text-transform: uppercase; overflow-wrap: break-word; }
+.lm-page main { overflow-x: clip; }
+.lm-hero h1 span { color: var(--neon); text-shadow: 0 0 22px rgba(200, 255, 46, .4); }
+.lm-lead { max-width: 52ch; margin: 1.4rem 0 0; color: #e3e2d9; font-size: 1.05rem; line-height: 1.55; }
+.lm-meta { display: flex; flex-wrap: wrap; gap: .6rem 1.4rem; margin: 1.6rem 0 0; padding: 0; list-style: none; color: var(--muted); font: .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.lm-meta li::before { content: "● "; color: var(--neon); }
+.lm-body { padding: clamp(2rem, 5vw, 4rem) var(--gutter) clamp(3rem, 7vw, 5rem); }
+.lm-wrap { max-width: 720px; margin: 0 auto; }
+
+/* Quiz */
+.qz-progress { height: 4px; background: var(--line); margin: 0 0 1.4rem; }
+.qz-progress span { display: block; height: 100%; width: 0; background: var(--neon); box-shadow: 0 0 12px rgba(200, 255, 46, .5); transition: width .3s ease; }
+.qz-step { margin: 0 0 .6rem; color: var(--muted); font: .7rem var(--mono); letter-spacing: .14em; }
+.qz-q { margin: 0 0 1.4rem; font: clamp(2rem, 6vw, 3rem)/.95 var(--display); text-transform: uppercase; }
+.qz-options { display: grid; gap: .7rem; margin: 0; padding: 0; border: 0; }
+.qz-opt { display: block; width: 100%; min-height: 56px; padding: 1rem 1.1rem; border: 1px solid var(--line); background: transparent; color: var(--paper); font: 600 1rem/1.35 var(--sans); text-align: left; cursor: pointer; }
+.qz-opt small { display: block; margin-top: .25rem; color: var(--muted); font: 400 .82rem var(--sans); }
+.qz-opt:hover, .qz-opt:focus-visible { border-color: var(--neon); outline: none; }
+.qz-opt[aria-pressed="true"] { border-color: var(--neon); background: rgba(200, 255, 46, .08); box-shadow: 0 0 16px rgba(200, 255, 46, .18); }
+.qz-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.4rem; }
+.qz-back { border: 0; background: none; color: var(--muted); font: .7rem var(--mono); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; padding: .6rem 0; }
+.qz-back:hover { color: var(--paper); }
+
+/* Résultat */
+.qz-result { border: 2px solid var(--neon); padding: clamp(1.3rem, 4vw, 2.2rem); box-shadow: 0 0 26px rgba(200, 255, 46, .18); }
+.qz-result .eyebrow { color: var(--neon); margin-bottom: .8rem; }
+.qz-result h2 { margin: 0; font: clamp(2.3rem, 7vw, 3.6rem)/.9 var(--display); text-transform: uppercase; }
+.qz-result p { color: #e3e2d9; line-height: 1.6; }
+.qz-why { margin: 1rem 0; padding: 0; list-style: none; display: grid; gap: .5rem; }
+.qz-why li { position: relative; padding-left: 1.7rem; }
+.qz-why li::before { content: "✓"; position: absolute; left: 0; top: .05rem; width: 1.2rem; height: 1.2rem; display: grid; place-items: center; border-radius: 50%; background: var(--neon); color: var(--black); font-weight: 800; font-size: .7rem; }
+.qz-price { font: clamp(2rem, 6vw, 2.6rem)/1 var(--display); color: var(--paper); margin: .4rem 0 1rem; }
+.qz-price small { font: .7rem var(--mono); color: var(--muted); letter-spacing: .06em; }
+.qz-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1rem; }
+.qz-actions .button-primary { background: var(--neon); border-color: var(--neon); color: var(--black); box-shadow: 0 0 18px rgba(200, 255, 46, .3); }
+.qz-alt { margin-top: 1.6rem; padding-top: 1.2rem; border-top: 1px dashed var(--line); }
+.qz-alt h3 { margin: 0 0 .4rem; font: 1.6rem/1 var(--display); color: var(--violet); }
+.qz-restart { margin-top: 1.4rem; }
+
+/* Checklist */
+.lm-preview { margin: 0; padding: 0; list-style: none; counter-reset: e; display: grid; gap: .6rem; }
+.lm-preview li { counter-increment: e; display: grid; grid-template-columns: 2.6rem 1fr; gap: .6rem; align-items: baseline; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+.lm-preview li::before { content: counter(e, decimal-leading-zero); color: var(--violet); font: 1.6rem/.9 var(--display); }
+.lm-preview li.is-locked { color: var(--muted); filter: blur(3px); user-select: none; }
+.lm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+.lm-grid > * { min-width: 0; }
+.lm-download { margin-top: 1rem; }
+.lm-download .button-primary, .lm-page .ch-submit { background: var(--neon); border-color: var(--neon); color: var(--black); }
+@media (max-width: 760px) { .lm-grid { grid-template-columns: 1fr; } }

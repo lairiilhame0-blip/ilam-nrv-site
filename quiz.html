@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="Quel programme est fait pour toi ? 5 questions, 1 minute, et Ilam NRV te dit par où commencer : maison, salle, course ou hybride.">
+  <title>Quel programme pour toi ? — Quiz ILAM.NRV</title>
+  <link rel="icon" type="image/svg+xml" href="https://customer-assets-39nsmqrw.emergentagent.net/wingman/59fffc21-75c6-4daf-b62d-70c28192cab5/attachments/b3d185df51384b5f903a141d37451ae3_favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=8">
+  <link rel="stylesheet" href="challenge.css?v=8">
+  <link rel="stylesheet" href="leads.css?v=1">
+  <script src="quiz.js?v=1" defer></script>
+  <script data-goatcounter="https://ilamnrv.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body class="challenge-page lm-page">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="ILAM.NRV, retour à l’accueil"><span>ILAM<span class="brand-dot">.</span>NRV</span><small>COACHING AU FÉMININ</small></a>
+    <a class="button button-small" href="/">Le site <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main">
+    <section class="lm-hero section-dark" aria-labelledby="qz-title">
+      <p class="eyebrow">QUIZ GRATUIT · 1 MINUTE</p>
+      <h1 id="qz-title">QUEL PROGRAMME<br><span>POUR TOI ?</span></h1>
+      <p class="lm-lead">Tu ne sais pas par où commencer ? Normal : personne ne te l’a jamais dit. Réponds à 5 questions, je te dis exactement quoi faire. Pas de blabla.</p>
+      <ul class="lm-meta"><li>5 questions</li><li>Maison, salle ou course</li><li>Résultat immédiat</li></ul>
+    </section>
+
+    <section class="lm-body section-olive" aria-live="polite">
+      <div class="lm-wrap">
+        <div class="qz-progress" aria-hidden="true"><span id="qz-bar"></span></div>
+
+        <div id="qz-questions">
+          <p class="qz-step" id="qz-step">QUESTION 1 / 5</p>
+          <h2 class="qz-q" id="qz-q" tabindex="-1">Ton objectif numéro 1 ?</h2>
+          <div class="qz-options" id="qz-options" role="group" aria-labelledby="qz-q"></div>
+          <div class="qz-nav"><button class="qz-back" type="button" id="qz-back" hidden>← Retour</button></div>
+        </div>
+
+        <form class="ch-card" id="qz-form" novalidate hidden>
+          <div class="form-heading"><span>TON RÉSULTAT EST PRÊT</span><span>NRV — QUIZ</span></div>
+          <p class="ch-hello">Dis-moi où te l’envoyer : tu le vois tout de suite, et tu le reçois aussi par email avec mes conseils pour bien démarrer.</p>
+          <label for="qz-name">Prénom *</label>
+          <input id="qz-name" name="first_name" autocomplete="given-name" maxlength="40" required placeholder="Ton prénom">
+          <label for="qz-email">Email *</label>
+          <input id="qz-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" required placeholder="toi@exemple.fr">
+          <label class="ch-consent"><input type="checkbox" id="qz-consent" required> <span>J’accepte de recevoir mon résultat, puis les conseils et les offres d’Ilam NRV par email. Désinscription en 1 clic. *</span></label>
+          <p class="ch-privacy">Ton email reste chez moi. Il n’est jamais vendu ni partagé.</p>
+          <button class="button button-primary ch-submit" type="submit">Voir mon programme <span aria-hidden="true">↗</span></button>
+          <p class="ch-status" id="qz-status" role="status"></p>
+        </form>
+
+        <div id="qz-result" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer ch-footer">
+    <a class="brand footer-brand" href="/"><span>ILAM<span class="brand-dot">.</span>NRV</span><small>COACHING AU FÉMININ</small><strong>TEAM NRV</strong></a>
+    <p>La force au féminin.<br>Fait avec <span role="img" aria-label="amour">♥</span> dans l’Oise.</p>
+    <div class="footer-links"><a href="https://instagram.com/ilam.nrv" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="/#mentions">Mentions légales</a></div>
+    <small class="legal-copyright">© ILAM.NRV 2026</small>
+  </footer>
+</body>
+</html>
