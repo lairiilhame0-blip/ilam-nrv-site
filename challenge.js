@@ -321,6 +321,18 @@
     }
   }
 
+  // ---------- Et après le défi ----------
+  // L'offre s'affiche à partir du vendredi 4 décembre (jour 5), dès 50 km atteints, ou en mode test.
+  const OFFER_FROM = "2026-12-04";
+  function showNext() {
+    const km = localKm();
+    const total = DAYS.reduce((s, d) => s + (Number(km[d]) || 0), 0);
+    const el = $("et-apres");
+    if (el && (TEST_MODE || parisToday() >= OFFER_FROM || total >= GOAL_KM)) el.hidden = false;
+  }
+  showNext();
+  document.addEventListener("change", showNext);
+
   // ---------- Démarrage ----------
   const urlToken = params.get("t");
   if (urlToken && UUID_RE.test(urlToken)) {

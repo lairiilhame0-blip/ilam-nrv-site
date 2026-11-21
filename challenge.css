@@ -3,9 +3,9 @@
 .challenge-page * { border-radius: 0; }
 .challenge-page .site-header { gap: 1rem; }
 
-.ch-hero, .ch-rules, .ch-join, .ch-space, .ch-board { padding: clamp(3.5rem, 8vw, 7rem) var(--gutter); }
-.ch-hero > *, .ch-rules > *, .ch-space > *, .ch-board > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
-.ch-hero .eyebrow, .ch-rules .eyebrow, .ch-join .eyebrow, .ch-space .eyebrow, .ch-board .eyebrow { margin-bottom: 1.2rem; }
+.ch-hero, .ch-rules, .ch-join, .ch-space, .ch-board, .ch-next { padding: clamp(3.5rem, 8vw, 7rem) var(--gutter); }
+.ch-hero > *, .ch-rules > *, .ch-space > *, .ch-board > *, .ch-next > * { max-width: 1100px; margin-left: auto; margin-right: auto; }
+.ch-hero .eyebrow, .ch-rules .eyebrow, .ch-join .eyebrow, .ch-space .eyebrow, .ch-board .eyebrow, .ch-next .eyebrow { margin-bottom: 1.2rem; }
 
 .ch-hero h1 { margin: 0; font: clamp(4.2rem, 13vw, 10rem)/.85 var(--display); text-transform: uppercase; }
 .ch-hero h1 span { color: var(--violet); }
@@ -96,3 +96,14 @@
   .ch-actions .button { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .ch-progress-fill { transition: none; } }
+
+/* Et après le défi */
+.ch-next-lead { max-width: 60ch; }
+.ch-offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.6rem; }
+.ch-offer { border: 1px solid currentColor; padding: 1.4rem; display: flex; flex-direction: column; gap: .7rem; min-width: 0; }
+.ch-offer.is-main { border-width: 2px; }
+.ch-offer h3 { margin: 0; font-family: "Bebas Neue", sans-serif; font-size: 1.9rem; letter-spacing: .02em; line-height: 1; }
+.ch-offer-tag { margin: 0; font: .7rem/1 var(--mono); letter-spacing: .12em; }
+.ch-offer-price { margin: 0; font-family: "Bebas Neue", sans-serif; font-size: 2.4rem; line-height: 1; }
+.ch-offer-price small { font: .7rem var(--mono); letter-spacing: .06em; }
+.ch-offer .button { margin-top: auto; align-self: flex-start; }
