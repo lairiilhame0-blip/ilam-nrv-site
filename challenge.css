@@ -107,3 +107,5 @@
 .ch-offer-price { margin: 0; font-family: "Bebas Neue", sans-serif; font-size: 2.4rem; line-height: 1; }
 .ch-offer-price small { font: .7rem var(--mono); letter-spacing: .06em; }
 .ch-offer .button { margin-top: auto; align-self: flex-start; }
+.ch-pack { border: 1px dashed currentColor; padding: .9rem 1rem; display: grid; gap: .4rem; }
+.ch-pack p { margin: 0; }
