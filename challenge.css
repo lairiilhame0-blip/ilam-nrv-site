@@ -110,3 +110,14 @@
 .ch-pack { border: 1px dashed currentColor; padding: 1rem 1.2rem; display: grid; gap: .5rem; margin-top: 1.4rem; }
 .ch-places { margin: 0; font: .72rem/1.5 var(--mono); letter-spacing: .04em; }
 .ch-pack p { margin: 0; }
+
+/* Néons, avec parcimonie (section offre) */
+.ch-next { --neon: #c8ff2e; }
+.ch-next .ch-h2 span { color: var(--violet); text-shadow: 0 0 18px rgba(176, 38, 255, .55); }
+.ch-next .ch-pack { border-color: var(--neon); box-shadow: 0 0 22px rgba(200, 255, 46, .18), inset 0 0 18px rgba(200, 255, 46, .06); }
+.ch-next .ch-pack .ch-offer-tag { color: var(--neon); }
+.ch-next .ch-pack strong { color: var(--neon); }
+.ch-offer.is-main { border-color: var(--violet); box-shadow: 0 0 26px rgba(176, 38, 255, .28); }
+.ch-offer.is-main .ch-offer-price { color: var(--violet); text-shadow: 0 0 14px rgba(176, 38, 255, .45); }
+.ch-offer.is-main .ch-places { color: var(--neon); }
+.ch-offer.is-main .button-primary { background: var(--neon); border-color: var(--neon); color: var(--black); box-shadow: 0 0 18px rgba(200, 255, 46, .35); }
