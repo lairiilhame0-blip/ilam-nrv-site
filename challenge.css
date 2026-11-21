@@ -111,6 +111,12 @@
 .ch-pack { border: 1px dashed currentColor; padding: 1rem 1.2rem; display: grid; gap: .5rem; margin-top: 1.4rem; }
 .ch-places { margin: 0; font: .72rem/1.5 var(--mono); letter-spacing: .04em; }
 .ch-pack p { margin: 0; }
+.ch-pack-title { margin: .2rem 0 0; font: clamp(2.4rem, 7vw, 3.6rem)/.9 var(--display); text-transform: uppercase; }
+.ch-pack-list { margin: .3rem 0; padding: 0; list-style: none; display: grid; gap: .7rem; }
+.ch-pack-list li { position: relative; padding-left: 2rem; line-height: 1.5; }
+.ch-pack-list li::before { content: "✓"; position: absolute; left: 0; top: .1rem; width: 1.4rem; height: 1.4rem; display: grid; place-items: center; border-radius: 50%; background: var(--neon); color: var(--black); font-weight: 800; font-size: .8rem; }
+.ch-pack-how { font-size: .95rem; }
+.ch-offer-bonus { margin: 0; font: .78rem/1.5 var(--mono); letter-spacing: .03em; color: var(--neon); }
 
 /* Néons, avec parcimonie (section offre) */
 .challenge-page { --neon: #c8ff2e; }
@@ -118,6 +124,7 @@
 .ch-next .ch-pack { border-color: var(--neon); box-shadow: 0 0 22px rgba(200, 255, 46, .18), inset 0 0 18px rgba(200, 255, 46, .06); }
 .ch-next .ch-pack .ch-offer-tag { color: var(--neon); }
 .ch-next .ch-pack strong { color: var(--neon); }
+.ch-next .ch-pack-title span { color: var(--neon); text-shadow: 0 0 18px rgba(200, 255, 46, .45); }
 .ch-offer.is-main { border-color: var(--violet); box-shadow: 0 0 26px rgba(176, 38, 255, .28); }
 .ch-offer.is-main .ch-offer-price { color: var(--violet); text-shadow: 0 0 14px rgba(176, 38, 255, .45); }
 .ch-offer.is-main .ch-places { color: var(--neon); }
