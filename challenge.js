@@ -243,6 +243,13 @@
     location.href = location.pathname;
   });
 
+  // Envoie l'inscription vers Systeme.io (mails du défi). Silencieux : une erreur ici ne bloque jamais l'inscription.
+  function syncSystemeio() {
+    try {
+      fetch(SUPABASE_URL + "/functions/v1/systemeio-sync", { method: "POST", headers: { "Content-Type": "application/json", apikey: SUPABASE_KEY }, body: "{}", keepalive: true }).catch(() => {});
+    } catch (e) { /* rien */ }
+  }
+
   // ---------- Inscription ----------
   $("join-form").addEventListener("submit", async (ev) => {
     ev.preventDefault();
@@ -252,6 +259,7 @@
     const email = $("j-email").value.trim();
     const wa = $("j-wa").value.trim();
     const consent = $("j-consent").checked;
+    const offers = !!($("j-offers") && $("j-offers").checked);
     if (!name) { setStatus(status, "Indique ton prénom.", "error"); $("j-name").focus(); return; }
     if (!/^[^@ ]+@[^@ ]+[.][^@ ]+$/.test(email)) { setStatus(status, "Indique un email valide.", "error"); $("j-email").focus(); return; }
     if (wa && !/^[+0-9 .()-]{6,20}$/.test(wa)) { setStatus(status, "Ton numéro WhatsApp ne semble pas valide.", "error"); $("j-wa").focus(); return; }
@@ -261,11 +269,12 @@
     btn.disabled = true;
     setStatus(status, "Inscription en cours…");
     try {
-      const token = await rpc("join_challenge", { p_first_name: name, p_email: email, p_whatsapp: wa || null, p_consent: true });
+      const token = await rpc("join_challenge", { p_first_name: name, p_email: email, p_whatsapp: wa || null, p_consent: true, p_consent_offers: offers });
       if (typeof token !== "string" || !UUID_RE.test(token)) throw new Error("Réponse inattendue");
       store(TOKEN_KEY, token);
       store(NAME_KEY, name);
       store(KM_KEY, "{}");
+      syncSystemeio();
       form.reset();
       setStatus(status, "Bienvenue dans le challenge, " + name + ". Ton espace perso est juste en dessous.", "ok");
       showSpace(token);
