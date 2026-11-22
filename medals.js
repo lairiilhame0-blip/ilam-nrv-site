@@ -51,8 +51,7 @@
     g.fillStyle = MUTED; g.font = "700 30px " + M; g.fillText("TOTAL : " + fmt(total) + " KM · 30 NOV – 6 DÉC 2026", W / 2, 1610);
 
     g.fillStyle = VIOLET; g.fillRect(W / 2 - 220, 1700, 440, 4);
-    g.fillStyle = MUTED; g.font = "700 28px " + M; g.fillText("MÉDAILLE DÉCERNÉE PAR", W / 2, 1760);
-    g.fillStyle = NEON; g.font = "84px " + D; g.fillText("ILAM NRV", W / 2, 1840);
+    g.fillStyle = NEON; g.font = "84px " + D; g.fillText("ILAM NRV", W / 2, 1810);
     g.fillStyle = PAPER; g.font = "700 34px " + M; g.fillText("@ilam.nrv · #CardioNRV", W / 2, 1890);
     return c;
   }
