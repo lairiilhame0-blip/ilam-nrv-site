@@ -32,7 +32,7 @@
     const D = "'Bebas Neue', Impact, sans-serif", M = "'Space Mono', monospace", S = "Inter, Arial, sans-serif";
 
     g.fillStyle = MUTED; g.font = "700 34px " + M; g.fillText("CHALLENGE CARDIO NRV", W / 2, 190);
-    g.fillStyle = PAPER; g.font = "80px " + D; g.fillText("ILAM.NRV", W / 2, 290);
+    g.fillStyle = PAPER; g.font = "96px " + D; g.fillText("TEAM NRV", W / 2, 295);
 
     // Rubans
     g.fillStyle = VIOLET;
