@@ -47,9 +47,8 @@
     g.fillStyle = NEON; g.font = "86px " + D; g.fillText("KM", W / 2, 1030);
 
     g.fillStyle = NEON; g.font = "150px " + D; g.fillText(m.name, W / 2, 1350);
-    g.fillStyle = PAPER; g.font = "110px " + D; g.fillText((name || "GUERRIÈRE").toUpperCase().slice(0, 18), W / 2, 1480);
-    g.fillStyle = "#e3e2d9"; g.font = "500 44px " + S; g.fillText(m.line, W / 2, 1570);
-    g.fillStyle = MUTED; g.font = "700 30px " + M; g.fillText("TOTAL : " + fmt(total) + " KM · 30 NOV – 6 DÉC 2026", W / 2, 1640);
+    g.fillStyle = PAPER; g.font = "130px " + D; g.fillText((name || "GUERRIÈRE").toUpperCase().slice(0, 18), W / 2, 1500);
+    g.fillStyle = MUTED; g.font = "700 30px " + M; g.fillText("TOTAL : " + fmt(total) + " KM · 30 NOV – 6 DÉC 2026", W / 2, 1610);
 
     g.fillStyle = VIOLET; g.fillRect(W / 2 - 220, 1700, 440, 4);
     g.fillStyle = MUTED; g.font = "700 28px " + M; g.fillText("MÉDAILLE DÉCERNÉE PAR", W / 2, 1760);
@@ -65,7 +64,7 @@
     const blob = await toBlob(c);
     if (!blob) return;
     const file = new File([blob], "medaille-cardio-nrv-" + m.km + "km.png", { type: "image/png" });
-    const text = m.line + " #CardioNRV @ilam.nrv";
+    const text = m.name + " " + m.km + " KM · #CardioNRV @ilam.nrv";
     try {
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         await navigator.share({ files: [file], text });
