@@ -12,8 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=8">
-  <link rel="stylesheet" href="challenge.css?v=8">
-  <script src="challenge.js?v=4" defer></script>
+  <link rel="stylesheet" href="challenge.css?v=9">
+  <script src="challenge.js?v=5" defer></script>
+  <script src="medals.js?v=1" defer></script>
   <script data-goatcounter="https://ilamnrv.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body class="challenge-page">
@@ -85,6 +86,13 @@
         <p class="ch-total"><span id="my-total">0</span> <small>/ 50 KM</small></p>
         <div class="ch-progress" role="progressbar" aria-label="Progression vers 50 km" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0" id="my-progress"><div class="ch-progress-fill" id="my-progress-fill"></div></div>
         <p class="ch-progress-note" id="my-progress-note">Chaque kilomètre compte.</p>
+      </div>
+
+      <div class="ch-medals" aria-labelledby="medals-title">
+        <p class="ch-link-title" id="medals-title">TES MÉDAILLES</p>
+        <p class="ch-link-help"><strong>Poste ta victoire : tu dois la célébrer !</strong> Chaque médaille débloquée se partage en story. Mentionne @ilam.nrv, je repartage les plus belles.</p>
+        <div class="ch-medal-grid" id="medal-grid"></div>
+        <div class="ch-level2" id="level2" aria-live="polite"></div>
       </div>
 
       <p class="ch-lock" id="km-lock" hidden>La saisie des km ouvre le lundi 30 novembre. Prépare-toi.</p>

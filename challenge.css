@@ -138,3 +138,21 @@
 .ch-progress-fill { background: var(--neon); box-shadow: 0 0 12px rgba(200, 255, 46, .5); }
 .ch-progress.is-done .ch-progress-fill { box-shadow: 0 0 14px rgba(176, 38, 255, .6); }
 .ch-board-list li.is-done .ch-board-km { text-shadow: 0 0 10px rgba(176, 38, 255, .5); }
+
+/* Médailles et niveau 2 */
+.ch-medals { margin-top: 2rem; padding: 1.2rem; border: 1px solid var(--line); background: var(--black); }
+.ch-medal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin-top: 1rem; }
+.ch-medal { display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; min-width: 0; }
+.ch-medal img, .ch-medal .ch-medal-locked { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border: 1px solid var(--line); background: #141414; }
+.ch-medal .ch-medal-locked { display: grid; place-items: center; color: var(--muted); font: .7rem/1.4 var(--mono); padding: .5rem; }
+.ch-medal-name { margin: 0; font: 1.15rem/1 var(--display); letter-spacing: .03em; }
+.ch-medal.is-on .ch-medal-name { color: var(--neon); }
+.ch-medal .button { width: 100%; min-height: 44px; padding: .5rem; font-size: .55rem; gap: .4rem; }
+.ch-medal.is-on img { border-color: var(--neon); box-shadow: 0 0 14px rgba(200, 255, 46, .25); }
+.ch-level2 { margin-top: 1.2rem; padding: 1rem; border: 1px dashed var(--line); }
+.ch-level2.is-open { border: 2px solid var(--violet); box-shadow: 0 0 22px rgba(176, 38, 255, .3); }
+.ch-level2 h3 { margin: .3rem 0; font: 1.8rem/1 var(--display); }
+.ch-level2.is-open h3 { color: var(--violet); }
+.ch-level2 p { margin: .3rem 0; }
+.ch-level2 .button { margin-top: .6rem; }
+@media (max-width: 420px) { .ch-medal-grid { gap: .5rem; } .ch-medal-name { font-size: .95rem; } }

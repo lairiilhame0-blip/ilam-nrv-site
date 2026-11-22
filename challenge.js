@@ -103,6 +103,7 @@
     $("my-progress-note").textContent = total >= GOAL_KM
       ? "50 KM. Tu l’as fait. Zone de confort : explosée."
       : (total === 0 ? "Chaque kilomètre compte. Premier pas, premier km." : "Encore " + formatKm(left) + " km. Ne lâche rien.");
+    document.dispatchEvent(new CustomEvent("nrv:total", { detail: { total } }));
   }
 
   function parseKm(raw) {
