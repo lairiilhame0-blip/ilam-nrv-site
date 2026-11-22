@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=8">
-  <link rel="stylesheet" href="challenge.css?v=9">
-  <script src="challenge.js?v=5" defer></script>
+  <link rel="stylesheet" href="challenge.css?v=10">
+  <script src="challenge.js?v=6" defer></script>
   <script src="medals.js?v=1" defer></script>
   <script data-goatcounter="https://ilamnrv.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -59,8 +59,9 @@
       <div class="ch-join-intro">
         <p class="eyebrow">INSCRIPTION · GRATUITE</p>
         <h2 id="join-title" class="ch-h2">JE M’<span>ENGAGE.</span></h2>
-        <p>Inscris-toi, puis garde ton lien personnel : il te permet de noter tes km chaque jour, sur n’importe quel téléphone.</p>
+        <p>Inscris-toi une fois : ensuite, le site te reconnaît tout seul. Sur un autre téléphone, utilise « Déjà inscrite ? ».</p>
       </div>
+      <div class="ch-join-forms">
       <form class="ch-card" id="join-form" novalidate>
         <div class="form-heading"><span>INSCRIPTION</span><span>NRV — CARDIO</span></div>
         <label for="j-name">Prénom *</label>
@@ -75,6 +76,19 @@
         <button class="button button-primary ch-submit" type="submit">Je m’inscris <span aria-hidden="true">↗</span></button>
         <p class="ch-status" id="join-status" role="status" aria-live="polite"></p>
       </form>
+
+      <details class="ch-recover">
+        <summary>Déjà inscrite ? <strong>Retrouve ton espace</strong></summary>
+        <form id="recover-form" class="ch-recover-form" novalidate>
+          <label for="r-email">Ton email d’inscription</label>
+          <div class="ch-recover-row">
+            <input id="r-email" type="email" inputmode="email" autocomplete="email" maxlength="120" required placeholder="toi@exemple.fr">
+            <button class="button button-primary" type="submit">OK</button>
+          </div>
+          <p class="ch-status" id="recover-status" role="status" aria-live="polite"></p>
+        </form>
+      </details>
+      </div>
     </section>
 
     <section class="ch-space section-olive" id="espace" aria-labelledby="space-title" hidden>

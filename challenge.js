@@ -284,7 +284,8 @@
     } catch (e) {
       setStatus(status, "", "error");
       if (e.code === "23505") {
-        appendWhatsAppHelp(status, "Cet email est déjà inscrit. Pour retrouver ton lien personnel, ");
+        status.textContent = "Tu es déjà inscrite ! Clique sur OK juste en dessous pour retrouver ton espace.";
+        $("r-email").value = email; document.querySelector(".ch-recover").open = true; $("recover-form").scrollIntoView({ behavior: "smooth", block: "center" });
       } else if (e.code === "23514") {
         status.textContent = "Vérifie ton prénom (40 caractères maximum) et ton email.";
       } else {
@@ -342,6 +343,31 @@
   }
   showNext();
   document.addEventListener("change", showNext);
+
+  // ---------- Retrouver son espace (autre téléphone, autre navigateur) ----------
+  $("recover-form").addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const status = $("recover-status");
+    const email = $("r-email").value.trim();
+    if (!/^[^@ ]+@[^@ ]+[.][^@ ]+$/.test(email)) { setStatus(status, "Indique ton email.", "error"); return; }
+    const btn = ev.currentTarget.querySelector("button");
+    btn.disabled = true;
+    setStatus(status, "Je te cherche…");
+    try {
+      const token = await rpc("recover_access", { p_email: email });
+      if (typeof token === "string" && UUID_RE.test(token)) {
+        store(TOKEN_KEY, token); store(KM_KEY, "{}");
+        setStatus(status, "Te revoilà ! Ton espace est juste en dessous.", "ok");
+        showSpace(token);
+        $("espace").scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        setStatus(status, "", "error");
+        appendWhatsAppHelp(status, "Je ne trouve pas cet email. Vérifie-le, ou ");
+      }
+    } catch (e) {
+      setStatus(status, "Ça n’a pas marché. Réessaie dans un instant.", "error");
+    } finally { btn.disabled = false; }
+  });
 
   // ---------- Démarrage ----------
   const urlToken = params.get("t");

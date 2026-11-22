@@ -156,3 +156,13 @@
 .ch-level2 p { margin: .3rem 0; }
 .ch-level2 .button { margin-top: .6rem; }
 @media (max-width: 420px) { .ch-medal-grid { gap: .5rem; } .ch-medal-name { font-size: .95rem; } }
+
+/* Déjà inscrite ? */
+.ch-join-forms { display: grid; gap: 1.2rem; min-width: 0; }
+.ch-recover { border: 1px dashed var(--line); padding: .9rem 1rem; background: var(--black); }
+.ch-recover summary { cursor: pointer; font: .72rem/1.5 var(--mono); letter-spacing: .04em; color: #d9d7ce; }
+.ch-recover summary strong { color: var(--neon); }
+.ch-recover-form label { display: block; margin: .9rem 0 .4rem; color: #d9d7ce; font: .64rem var(--mono); }
+.ch-recover-row { display: flex; gap: .6rem; }
+.ch-recover-row input { flex: 1; min-width: 0; min-height: 48px; border: 1px solid var(--line); padding: .75rem; background: transparent; color: var(--paper); font: 1rem var(--sans); }
+.ch-recover-row .button { min-height: 48px; background: var(--neon); border-color: var(--neon); color: var(--black); }
