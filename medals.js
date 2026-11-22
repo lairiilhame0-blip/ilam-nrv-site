@@ -12,7 +12,7 @@
   const MEDALS = [
     { km: 10, name: "LANCÉE", line: "J’ai lancé le Challenge Cardio NRV." },
     { km: 25, name: "MI-PARCOURS", line: "25 km. Je ne lâche rien." },
-    { km: 50, name: "FINISHER", line: "50 km en 7 jours. Fait." }
+    { km: 50, name: "FINISHER", line: "50 km en 7 jours. Zone de confort : explosée." }
   ];
   const NEON = "#c8ff2e", VIOLET = "#b026ff", PAPER = "#f4f1e8", MUTED = "#b6b7a6";
   let lastKey = "";
