@@ -25,34 +25,37 @@
     c.width = W; c.height = H;
     const g = c.getContext("2d");
     g.fillStyle = "#0b0b0b"; g.fillRect(0, 0, W, H);
-    const glow = g.createRadialGradient(W / 2, 860, 60, W / 2, 860, 760);
+    // Tout le contenu tient entre y=270 et y=1650 : zones hautes et basses d'une story Instagram laissées libres.
+    const CY = 830;
+    const glow = g.createRadialGradient(W / 2, CY, 60, W / 2, CY, 720);
     glow.addColorStop(0, "rgba(176,38,255,.35)"); glow.addColorStop(1, "rgba(176,38,255,0)");
     g.fillStyle = glow; g.fillRect(0, 0, W, H);
     g.textAlign = "center";
-    const D = "'Bebas Neue', Impact, sans-serif", M = "'Space Mono', monospace", S = "Inter, Arial, sans-serif";
+    const D = "'Bebas Neue', Impact, sans-serif", M = "'Space Mono', monospace";
 
-    g.fillStyle = MUTED; g.font = "700 34px " + M; g.fillText("CHALLENGE CARDIO NRV", W / 2, 190);
-    g.fillStyle = PAPER; g.font = "96px " + D; g.fillText("TEAM NRV", W / 2, 295);
+    g.fillStyle = MUTED; g.font = "700 32px " + M; g.fillText("CHALLENGE CARDIO NRV", W / 2, 300);
+    g.fillStyle = PAPER; g.font = "100px " + D; g.fillText("TEAM NRV", W / 2, 400);
 
     // Rubans
     g.fillStyle = VIOLET;
-    g.beginPath(); g.moveTo(400, 380); g.lineTo(500, 380); g.lineTo(560, 560); g.lineTo(470, 600); g.closePath(); g.fill();
-    g.beginPath(); g.moveTo(680, 380); g.lineTo(580, 380); g.lineTo(520, 560); g.lineTo(610, 600); g.closePath(); g.fill();
+    g.beginPath(); g.moveTo(410, 440); g.lineTo(500, 440); g.lineTo(555, 580); g.lineTo(470, 610); g.closePath(); g.fill();
+    g.beginPath(); g.moveTo(670, 440); g.lineTo(580, 440); g.lineTo(525, 580); g.lineTo(610, 610); g.closePath(); g.fill();
     // Médaille
     g.save(); g.shadowColor = NEON; g.shadowBlur = 60;
-    g.beginPath(); g.arc(W / 2, 860, 330, 0, Math.PI * 2); g.fillStyle = NEON; g.fill(); g.restore();
-    g.beginPath(); g.arc(W / 2, 860, 296, 0, Math.PI * 2); g.fillStyle = "#121212"; g.fill();
-    g.beginPath(); g.arc(W / 2, 860, 270, 0, Math.PI * 2); g.lineWidth = 4; g.strokeStyle = "rgba(200,255,46,.5)"; g.stroke();
-    g.fillStyle = PAPER; g.font = "300px " + D; g.fillText(String(m.km), W / 2, 930);
-    g.fillStyle = NEON; g.font = "86px " + D; g.fillText("KM", W / 2, 1030);
+    g.beginPath(); g.arc(W / 2, CY, 270, 0, Math.PI * 2); g.fillStyle = NEON; g.fill(); g.restore();
+    g.beginPath(); g.arc(W / 2, CY, 242, 0, Math.PI * 2); g.fillStyle = "#121212"; g.fill();
+    g.beginPath(); g.arc(W / 2, CY, 220, 0, Math.PI * 2); g.lineWidth = 4; g.strokeStyle = "rgba(200,255,46,.5)"; g.stroke();
+    g.fillStyle = PAPER; g.font = "250px " + D; g.fillText(String(m.km), W / 2, CY + 60);
+    g.fillStyle = NEON; g.font = "74px " + D; g.fillText("KM", W / 2, CY + 140);
 
-    g.fillStyle = NEON; g.font = "150px " + D; g.fillText(m.name, W / 2, 1350);
-    g.fillStyle = PAPER; g.font = "130px " + D; g.fillText((name || "GUERRIÈRE").toUpperCase().slice(0, 18), W / 2, 1500);
-    g.fillStyle = MUTED; g.font = "700 30px " + M; g.fillText("TOTAL : " + fmt(total) + " KM · 30 NOV – 6 DÉC 2026", W / 2, 1610);
+    g.fillStyle = NEON; g.font = "140px " + D; g.fillText(m.name, W / 2, 1245);
+    g.fillStyle = PAPER; g.font = "120px " + D; g.fillText((name || "GUERRIÈRE").toUpperCase().slice(0, 18), W / 2, 1365);
+    g.fillStyle = "#e3e2d9"; g.font = "700 38px " + M; g.fillText("TOTAL : " + fmt(total) + " KM", W / 2, 1435);
+    g.fillStyle = MUTED; g.font = "700 28px " + M; g.fillText("30 NOV – 6 DÉC 2026", W / 2, 1480);
 
-    g.fillStyle = VIOLET; g.fillRect(W / 2 - 220, 1700, 440, 4);
-    g.fillStyle = NEON; g.font = "84px " + D; g.fillText("ILAM NRV", W / 2, 1810);
-    g.fillStyle = PAPER; g.font = "700 34px " + M; g.fillText("@ilam.nrv · #CardioNRV", W / 2, 1890);
+    g.fillStyle = VIOLET; g.fillRect(W / 2 - 200, 1515, 400, 4);
+    g.fillStyle = NEON; g.font = "84px " + D; g.fillText("ILAM NRV", W / 2, 1600);
+    g.fillStyle = PAPER; g.font = "700 32px " + M; g.fillText("@ilam.nrv · #CardioNRV", W / 2, 1648);
     return c;
   }
 
