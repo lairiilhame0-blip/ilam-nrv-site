@@ -263,7 +263,7 @@
     if (!name) { setStatus(status, "Indique ton prénom.", "error"); $("j-name").focus(); return; }
     if (!/^[^@ ]+@[^@ ]+[.][^@ ]+$/.test(email)) { setStatus(status, "Indique un email valide.", "error"); $("j-email").focus(); return; }
     if (wa && !/^[+0-9 .()-]{6,20}$/.test(wa)) { setStatus(status, "Ton numéro WhatsApp ne semble pas valide.", "error"); $("j-wa").focus(); return; }
-    if (!consent) { setStatus(status, "Coche la case d’accord pour t’inscrire.", "error"); $("j-consent").focus(); return; }
+    if (!consent || !offers) { setStatus(status, "Coche les 2 cases pour t’inscrire.", "error"); (consent ? $("j-offers") : $("j-consent")).focus(); return; }
 
     const btn = form.querySelector(".ch-submit");
     btn.disabled = true;
