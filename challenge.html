@@ -72,8 +72,8 @@
         <label for="j-wa">WhatsApp (facultatif)</label>
         <input id="j-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="06 00 00 00 00">
         <label class="ch-consent"><input type="checkbox" id="j-consent" name="consent" required> <span>J’accepte que mes données servent à gérer le challenge : mails et messages du défi pendant 7 jours. *</span></label>
-        <label class="ch-consent ch-consent-offers"><input type="checkbox" id="j-offers" name="consent_offers" required> <span>J’accepte de recevoir par email les conseils et les offres d’Ilam NRV, dont mon Pack Guerrière à la fin du défi. Désinscription en 1 clic. *</span></label>
-        <p class="ch-privacy">Seul ton prénom apparaît dans le classement, jamais ton nom de famille ni ton email.</p>
+        <label class="ch-consent ch-consent-offers"><input type="checkbox" id="j-offers" name="consent_offers"> <span>Facultatif : j’accepte de recevoir par email les conseils et les offres d’Ilam NRV, dont mon Pack Guerrière à la fin du défi. Désinscription en 1 clic.</span></label>
+        <p class="ch-privacy">Seul ton prénom apparaît dans le classement, et seulement à partir de ton premier kilomètre. Jamais ton nom de famille ni ton email. Pour être retirée du classement ou supprimer tes données : contact@ilamnrv.fr.</p>
         <button class="button button-primary ch-submit" type="submit">Je m’inscris <span aria-hidden="true">↗</span></button>
         <p class="ch-status" id="join-status" role="status" aria-live="polite"></p>
       </form>
@@ -81,7 +81,7 @@
       <details class="ch-recover">
         <summary>Déjà inscrite ? <strong>Retrouve ton espace</strong></summary>
         <form id="recover-form" class="ch-recover-form" novalidate>
-          <label for="r-email">Ton email d’inscription</label>
+          <label for="r-email">Ton email d’inscription : je t’envoie ton lien perso par mail.</label>
           <div class="ch-recover-row">
             <input id="r-email" type="email" inputmode="email" autocomplete="email" maxlength="120" required placeholder="toi@exemple.fr">
             <button class="button button-primary" type="submit">OK</button>
@@ -131,7 +131,7 @@
     <section class="ch-board section-dark" id="classement" aria-labelledby="board-title">
       <p class="eyebrow">EN DIRECT</p>
       <h2 id="board-title" class="ch-h2">LE <span>CLASSEMENT.</span></h2>
-      <p class="ch-board-intro">Prénoms et kilomètres cumulés. On ne se compare pas, on se pousse.</p>
+      <p class="ch-board-intro">Prénoms et kilomètres cumulés des guerrières qui ont commencé. On ne se compare pas, on se pousse.</p>
       <ol class="ch-board-list" id="board-list" aria-label="Classement des participantes"></ol>
       <p class="ch-status" id="board-status" role="status" aria-live="polite"></p>
     </section>
