@@ -12,8 +12,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=8">
-  <link rel="stylesheet" href="challenge.css?v=10">
-  <script src="challenge.js?v=7" defer></script>
+  <link rel="stylesheet" href="challenge.css?v=11">
+  <script src="challenge.js?v=8" defer></script>
   <script src="medals.js?v=1" defer></script>
   <script data-goatcounter="https://ilamnrv.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   <script src="track.js?v=1" defer></script>
@@ -60,6 +60,7 @@
       <div class="ch-join-intro">
         <p class="eyebrow">INSCRIPTION · GRATUITE</p>
         <h2 id="join-title" class="ch-h2">JE M’<span>ENGAGE.</span></h2>
+        <p class="ch-deadline" id="join-deadline"><strong>Inscriptions ouvertes jusqu’au lundi 30 novembre à minuit.</strong> Tu commences un peu après les autres ? Pas grave : chaque mètre compte.</p>
         <p>Inscris-toi une fois : ensuite, le site te reconnaît tout seul. Sur un autre téléphone, utilise « Déjà inscrite ? ».</p>
       </div>
       <div class="ch-join-forms">
@@ -77,6 +78,11 @@
         <button class="button button-primary ch-submit" type="submit">Je m’inscris <span aria-hidden="true">↗</span></button>
         <p class="ch-status" id="join-status" role="status" aria-live="polite"></p>
       </form>
+      <div class="ch-card ch-closed" id="join-closed" hidden>
+        <div class="form-heading"><span>INSCRIPTIONS</span><span>FERMÉES</span></div>
+        <p><strong>Les inscriptions sont fermées.</strong> Le défi est lancé, on se retrouve au prochain.</p>
+        <p>Déjà inscrite ? Retrouve ton espace juste en dessous.</p>
+      </div>
 
       <details class="ch-recover">
         <summary>Déjà inscrite ? <strong>Retrouve ton espace</strong></summary>

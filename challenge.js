@@ -251,6 +251,19 @@
     } catch (e) { /* rien */ }
   }
 
+  // ---------- Fin des inscriptions (décision d'Ilam du 28/11 : mardi 1er décembre à 0h, heure de Paris) ----------
+  const SIGNUP_CLOSE = Date.parse("2026-11-30T23:00:00Z");
+  function signupClosed() { return !TEST_MODE && Date.now() >= SIGNUP_CLOSE; }
+  function closeSignup() {
+    $("join-form").hidden = true;
+    $("join-closed").hidden = false;
+    const dl = $("join-deadline"); if (dl) dl.hidden = true;
+    const cta = $("hero-cta"); if (cta) cta.textContent = "Inscriptions fermées";
+    const rec = document.querySelector(".ch-recover"); if (rec) rec.open = true;
+  }
+  if (signupClosed()) closeSignup();
+  else setTimeout(() => { if (signupClosed()) closeSignup(); }, Math.min(SIGNUP_CLOSE - Date.now() + 1000, 2147483000));
+
   // ---------- Inscription ----------
   $("join-form").addEventListener("submit", async (ev) => {
     ev.preventDefault();
@@ -286,6 +299,9 @@
       if (e.code === "23505") {
         status.textContent = "Tu es déjà inscrite ! Clique sur OK juste en dessous pour retrouver ton espace.";
         $("r-email").value = email; document.querySelector(".ch-recover").open = true; $("recover-form").scrollIntoView({ behavior: "smooth", block: "center" });
+      } else if (e.code === "P0001" || /inscriptions_closes/.test(e.message || "")) {
+        closeSignup();
+        status.textContent = "Les inscriptions sont fermées : le défi est lancé.";
       } else if (e.code === "23514") {
         status.textContent = "Vérifie ton prénom (40 caractères maximum) et ton email.";
       } else {

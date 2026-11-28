@@ -166,3 +166,6 @@
 .ch-recover-row { display: flex; gap: .6rem; }
 .ch-recover-row input { flex: 1; min-width: 0; min-height: 48px; border: 1px solid var(--line); padding: .75rem; background: transparent; color: var(--paper); font: 1rem var(--sans); }
 .ch-recover-row .button { min-height: 48px; background: var(--neon); border-color: var(--neon); color: var(--black); }
+
+.ch-deadline { border-left: 2px solid var(--violet, #B026FF); padding: .4rem .8rem; }
+.ch-closed p { margin: .8rem 0 0; }
